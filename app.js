@@ -17,10 +17,13 @@ function askGuess() {
         tries = tries + 1;
 
         if (guess === secret) {
-            console.log('Correct!');
+            console.log('Correct! You got it in ' + tries + '!');
             r1.close();
+        } else if (guess > secret) {
+            console.log('Lower! Try again!');
+            askGuess();
         } else {
-            console.log('Incorrect!');
+            console.log('Higher! Try again!');
             askGuess();
         }
     });
